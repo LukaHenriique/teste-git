@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+struct Pessoa {
+  std::string nome;
+  int idade;
+  std::string endereco;
+   std::string sexo;
+};
+
+int main() {
+  std::cout << "DIGITE AQUI A QUANTIDADES DE PESSOAS QUE DESEJA CADASTRAR?:";
+  int num_pessoas;
+  std::cin >> num_pessoas;
+
+  Pessoa *cadastro = new Pessoa[num_pessoas];
+
+  for (int i = 0; i < num_pessoas; i++) {
+    std::cout << "Digite o nome da pessoa " << i + 1 << ": ";
+    std::cin >> cadastro[i].nome;
+    std::cout << "Digite a idade da pessoa " << i + 1 << ": ";
+    std::cin >> cadastro[i].idade;
+    std::cout << "Digite o endereco da pessoa " << i + 1 << ": ";
+    std::cin >> cadastro[i].endereco;
+    std::cout << "Digite o sexo da pessoa " << i + 1 << ": ";
+    std::cin >> cadastro[i].sexo;
+  }
+
+  std::cout << "Cadastro completo!\n\n";
+  std::cout << "Listando informacoes:\n";
+  for (int i = 0; i < num_pessoas; i++) {
+    std::cout << "Nome: " << cadastro[i].nome << "\n";
+    std::cout << "Idade: " << cadastro[i].idade << "\n";
+    std::cout << "Endereco: " << cadastro[i].endereco << "\n\n";
+    std::cout << "Sexo: " << cadastro[i].sexo << "\n\n";
+  }
+
+  delete[] cadastro;
+
+  return 0;
+}
